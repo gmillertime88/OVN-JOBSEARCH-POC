@@ -1,0 +1,27 @@
+type UrlBuilderInput = {
+  location: string;
+  radiusMiles: number;
+  query: string;
+};
+
+function toEncodedQuery(query: string): string {
+  return encodeURIComponent(query.trim());
+}
+
+export function buildLinkedInSearchUrl(input: UrlBuilderInput): string {
+  const params = new URLSearchParams({
+    keywords: input.query.trim(),
+    location: input.location.trim(),
+    distance: String(input.radiusMiles)
+  });
+
+  return `https://www.linkedin.com/jobs/search/?${params.toString()}`;
+}
+
+export function buildIndeedSearchUrl(input: UrlBuilderInput): string {
+  const base = "https://www.indeed.com/jobs";
+  const query = toEncodedQuery(input.query);
+  const location = encodeURIComponent(input.location.trim());
+
+  return `${base}?q=${query}&l=${location}&radius=${input.radiusMiles}`;
+}
