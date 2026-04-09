@@ -74,6 +74,28 @@ npm run build
 npm run preview
 ```
 
+## Quick Git Deploy Command
+After making changes, you can run:
+
+```bash
+./deployOVN "your commit message"
+```
+
+If you omit the message, a default commit message is used.
+
+This command will:
+- stage all changes
+- commit (if there are changes)
+- push to the current branch
+- trigger GitHub Actions deployment for GitHub Pages
+
+Optional one-time alias to run it as a single command (`deployOVN`) from this repo:
+
+```bash
+echo 'alias deployOVN="\"/Users/greg/Library/CloudStorage/Dropbox/ProactiveTech/Clients/Oncology Voice Network (OVN)/Proof of Concept/Job Search/deployOVN\""' >> ~/.zshrc
+source ~/.zshrc
+```
+
 ## Validation Rules Implemented
 - ZIP code must be exactly 5 digits
 - Radius must be a whole number between 1 and 100

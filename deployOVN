@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "Not inside a git repository."
+  exit 1
+fi
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+message="${*:-chore: update OVN POC}"
+
+if [[ -n "$(git status --porcelain)" ]]; then
+  git add -A
+  git commit -m "$message"
+  echo "Committed with message: $message"
+else
+  echo "No file changes detected. Skipping commit."
+fi
+
+git push origin "$branch"
+
+echo ""
+echo "Pushed to origin/$branch"
+echo "GitHub Actions will deploy the latest version to Pages."
+echo "Actions: https://github.com/gmillertime88/OVN-JOBSEARCH-POC/actions"
+echo "Site: https://gmillertime88.github.io/OVN-JOBSEARCH-POC/"
