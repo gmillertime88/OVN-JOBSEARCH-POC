@@ -37,58 +37,33 @@ body {
 .app-shell {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2.5rem 1rem 3rem;
+  padding: 2rem 1rem 3rem;
   animation: shell-enter 420ms ease-out;
 }
 
-.top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.55rem 0.85rem;
-  border: 1px solid rgba(255, 227, 155, 0.42);
-  border-radius: 14px;
-  background: linear-gradient(110deg, rgba(77, 43, 117, 0.75), rgba(123, 110, 178, 0.68));
-  backdrop-filter: blur(3px);
+.site-header {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e8dff4;
+  box-shadow: 0 1px 8px rgba(38, 21, 60, 0.08);
 }
 
-.top-nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
+.site-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.9rem 1rem;
 }
 
-.top-nav-logo {
-  width: 112px;
+.site-logo {
+  width: min(230px, 62vw);
   height: auto;
-}
-
-.top-nav-title {
-  color: #fff4cf;
-  font-size: 0.86rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.top-nav-link {
-  color: #2d183f;
-  background: linear-gradient(120deg, var(--ovn-yellow), var(--ovn-gold));
-  border-radius: 999px;
-  padding: 0.42rem 0.75rem;
-  text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 800;
-}
-
-.top-nav-link:hover {
-  filter: brightness(1.03);
 }
 
 .app-header h1 {
   margin: 0.35rem 0 0;
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   color: #fff8e4;
   font-size: clamp(1.8rem, 5vw, 2.6rem);
 }
@@ -119,17 +94,6 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 700;
-}
-
-.saved-note {
-  display: inline-block;
-  margin: 0.5rem 0 0;
-  padding: 0.35rem 0.65rem;
-  border-radius: 999px;
-  background: rgba(43, 27, 67, 0.5);
-  color: #ffe9b4;
-  font-size: 0.82rem;
-  border: 1px solid rgba(255, 227, 155, 0.35);
 }
 
 .app-grid {
@@ -326,19 +290,8 @@ body {
 }
 
 @media (max-width: 640px) {
-  .top-nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .top-nav-brand {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-
-  .top-nav-logo {
-    width: min(52vw, 170px);
+  .site-header-inner {
+    padding: 0.75rem 0.7rem;
   }
 
   .app-shell {

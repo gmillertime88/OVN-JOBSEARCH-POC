@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import { ResultsPanel } from "./components/ResultsPanel";
 import { SearchForm } from "./components/SearchForm";
 import type { SearchInputs, SearchResult, ValidationErrors } from "./types";
 import ovnLogo from "./assets/OVN-Logo_203x50.svg";
 import { generateSearchResults } from "./utils/searchGenerator";
-import { sanitizeKeywords, sanitizeLocation, sanitizeRoleTitle } from "./utils/validation";
 import { validateSearchInputs } from "./utils/validation";
 
 const INITIAL_INPUTS: SearchInputs = {
@@ -14,43 +13,10 @@ const INITIAL_INPUTS: SearchInputs = {
   keywords: ["", "", ""]
 };
 
-const FORM_STORAGE_KEY = "ovn-job-search-form-v1";
-
-function toPersistedInputs(raw: Partial<SearchInputs>): SearchInputs {
-  return {
-    location: sanitizeLocation((raw.location ?? "").toString()),
-    radiusMiles: (raw.radiusMiles ?? "25").toString(),
-    roleTitle: sanitizeRoleTitle((raw.roleTitle ?? "").toString()),
-    keywords: [...sanitizeKeywords(Array.isArray(raw.keywords) ? raw.keywords : []), "", ""].slice(0, 3)
-  };
-}
-
 export default function App() {
-  const [inputs, setInputs] = useState<SearchInputs>(() => {
-    const persisted = window.localStorage.getItem(FORM_STORAGE_KEY);
-    if (!persisted) {
-      return INITIAL_INPUTS;
-    }
-
-    try {
-      return toPersistedInputs(JSON.parse(persisted) as Partial<SearchInputs>);
-    } catch {
-      return INITIAL_INPUTS;
-    }
-  });
+  const [inputs, setInputs] = useState<SearchInputs>(INITIAL_INPUTS);
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [results, setResults] = useState<SearchResult[]>([]);
-
-  const hasPersistedValues = useMemo(
-    () =>
-      Boolean(inputs.location || inputs.roleTitle || inputs.keywords.some(Boolean)) ||
-      inputs.radiusMiles !== INITIAL_INPUTS.radiusMiles,
-    [inputs]
-  );
-
-  useEffect(() => {
-    window.localStorage.setItem(FORM_STORAGE_KEY, JSON.stringify(inputs));
-  }, [inputs]);
 
   function handleInputChange(field: keyof SearchInputs, value: string | string[]): void {
     setInputs((prev: SearchInputs) => ({
@@ -85,49 +51,37 @@ export default function App() {
     setInputs(INITIAL_INPUTS);
     setErrors({});
     setResults([]);
-    window.localStorage.removeItem(FORM_STORAGE_KEY);
   }
 
   return (
-    <main className="app-shell">
-      <nav className="top-nav" aria-label="OVN navigation">
-        <div className="top-nav-brand">
-          <img className="top-nav-logo" src={ovnLogo} alt="Oncology Voice Network" />
-          <span className="top-nav-title">OVN Job Discovery</span>
+    <>
+      <header className="site-header" aria-label="OVN header">
+        <div className="site-header-inner">
+          <img className="site-logo" src={ovnLogo} alt="Oncology Voice Network" />
         </div>
-        <a
-          className="top-nav-link"
-          href="https://oncologyvoicenetwork.com/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Visit OVN
-        </a>
-      </nav>
+      </header>
 
-      <header className="app-header">
-        <div className="brand-lockup">
-          <img className="brand-logo" src={ovnLogo} alt="Oncology Voice Network" />
+      <main className="app-shell">
+        <header className="app-header">
           <p className="brand-kicker">Job Discovery Proof of Concept</p>
-        </div>
         <h1>Oncology Voice Network Job Discovery</h1>
         <p>
           Generate compliant outbound searches for LinkedIn and Indeed using location, role, and optional
           keywords.
         </p>
-        {hasPersistedValues ? <p className="saved-note">Form state is saved locally on this device.</p> : null}
-      </header>
+        </header>
 
-      <section className="app-grid">
-        <SearchForm
-          values={inputs}
-          errors={errors}
-          onSubmit={handleSubmit}
-          onInputChange={handleInputChange}
-          onReset={handleReset}
-        />
-        <ResultsPanel results={results} />
-      </section>
-    </main>
+        <section className="app-grid">
+          <SearchForm
+            values={inputs}
+            errors={errors}
+            onSubmit={handleSubmit}
+            onInputChange={handleInputChange}
+            onReset={handleReset}
+          />
+          <ResultsPanel results={results} />
+        </section>
+      </main>
+    </>
   );
 }
