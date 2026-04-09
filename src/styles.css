@@ -1,17 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
 
 :root {
-  --bg-deep: #07131f;
-  --bg-soft: #10263f;
-  --surface: #f7fbff;
+  --ovn-purple: #4d2b75;
+  --ovn-lavender: #7b6eb2;
+  --ovn-yellow: #fddb5d;
+  --ovn-gold: #fcb137;
+  --ovn-orange: #f47922;
+  --bg-deep: #2f1d4a;
+  --bg-soft: #4d2b75;
+  --surface: #faf8ff;
   --surface-2: #ffffff;
-  --ink-strong: #102033;
-  --ink-muted: #425c77;
-  --accent: #0b8f73;
-  --accent-2: #0f6abf;
+  --ink-strong: #2b1b43;
+  --ink-muted: #5b5174;
+  --accent: #f47922;
+  --accent-2: #7b6eb2;
   --danger: #b3261e;
-  --outline: #d4e2f0;
-  --card-shadow: 0 18px 30px rgba(11, 22, 36, 0.14);
+  --outline: #dfd4f0;
+  --card-shadow: 0 18px 30px rgba(48, 28, 73, 0.16);
   font-family: "Manrope", "Segoe UI", sans-serif;
   color: var(--ink-strong);
 }
@@ -24,8 +29,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 18%, rgba(15, 106, 191, 0.17), transparent 42%),
-    radial-gradient(circle at 85% 10%, rgba(11, 143, 115, 0.2), transparent 35%),
+    radial-gradient(circle at 12% 18%, rgba(253, 219, 93, 0.22), transparent 42%),
+    radial-gradient(circle at 85% 10%, rgba(244, 121, 34, 0.22), transparent 35%),
     linear-gradient(160deg, var(--bg-deep) 0%, var(--bg-soft) 100%);
 }
 
@@ -36,17 +41,84 @@ body {
   animation: shell-enter 420ms ease-out;
 }
 
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255, 227, 155, 0.42);
+  border-radius: 14px;
+  background: linear-gradient(110deg, rgba(77, 43, 117, 0.75), rgba(123, 110, 178, 0.68));
+  backdrop-filter: blur(3px);
+}
+
+.top-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.top-nav-logo {
+  width: 112px;
+  height: auto;
+}
+
+.top-nav-title {
+  color: #fff4cf;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.top-nav-link {
+  color: #2d183f;
+  background: linear-gradient(120deg, var(--ovn-yellow), var(--ovn-gold));
+  border-radius: 999px;
+  padding: 0.42rem 0.75rem;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.top-nav-link:hover {
+  filter: brightness(1.03);
+}
+
 .app-header h1 {
-  margin: 0;
+  margin: 0.35rem 0 0;
   font-family: "Fraunces", Georgia, serif;
-  color: #f4fbff;
+  color: #fff8e4;
   font-size: clamp(1.8rem, 5vw, 2.6rem);
 }
 
 .app-header p {
   margin-top: 0.6rem;
   max-width: 70ch;
-  color: #d8e7f4;
+  color: #f1e8ff;
+}
+
+.brand-lockup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brand-logo {
+  width: min(260px, 76vw);
+  height: auto;
+  filter: drop-shadow(0 2px 8px rgba(37, 20, 59, 0.35));
+}
+
+.brand-kicker {
+  margin: 0;
+  color: #ffe39b;
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .saved-note {
@@ -54,10 +126,10 @@ body {
   margin: 0.5rem 0 0;
   padding: 0.35rem 0.65rem;
   border-radius: 999px;
-  background: rgba(7, 25, 41, 0.4);
-  color: #b9d7f1;
+  background: rgba(43, 27, 67, 0.5);
+  color: #ffe9b4;
   font-size: 0.82rem;
-  border: 1px solid rgba(185, 215, 241, 0.3);
+  border: 1px solid rgba(255, 227, 155, 0.35);
 }
 
 .app-grid {
@@ -92,7 +164,7 @@ body {
 
 .search-form input {
   width: 100%;
-  border: 1px solid #bfd1e5;
+  border: 1px solid #ccbde5;
   border-radius: 10px;
   padding: 0.72rem;
   font-size: 0.96rem;
@@ -104,11 +176,11 @@ body {
 .search-form input:focus {
   outline: none;
   border-color: var(--accent-2);
-  box-shadow: 0 0 0 4px rgba(15, 106, 191, 0.14);
+  box-shadow: 0 0 0 4px rgba(123, 110, 178, 0.2);
 }
 
 .keywords-group {
-  border: 1px dashed #c2d6ea;
+  border: 1px dashed #d0c1ea;
   border-radius: 10px;
   padding: 0.75rem;
   margin: 0.9rem 0;
@@ -125,7 +197,7 @@ body {
   border: none;
   border-radius: 10px;
   padding: 0.8rem;
-  background: linear-gradient(128deg, var(--accent-2) 0%, var(--accent) 100%);
+  background: linear-gradient(128deg, var(--ovn-purple) 0%, var(--ovn-orange) 100%);
   color: #ffffff;
   font-size: 0.95rem;
   font-weight: 700;
@@ -141,11 +213,11 @@ body {
 .secondary-btn {
   width: 100%;
   margin-top: 0.55rem;
-  border: 1px solid #9eb9d5;
+  border: 1px solid #c0aee1;
   border-radius: 10px;
   padding: 0.72rem;
-  background: #eef5fc;
-  color: #23415f;
+  background: #f6efff;
+  color: #4a2d72;
   font-size: 0.92rem;
   font-weight: 700;
   cursor: pointer;
@@ -172,7 +244,7 @@ body {
 }
 
 .result-card {
-  border: 1px solid #d8e5f3;
+  border: 1px solid #e2d6f2;
   border-radius: 10px;
   padding: 0.82rem;
   background: #ffffff;
@@ -190,16 +262,16 @@ body {
   font-size: 0.82rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #305372;
+  color: #5c3f87;
   font-weight: 700;
 }
 
 .variant-chip {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #1e4364;
-  border: 1px solid #bad2ea;
-  background: #edf6ff;
+  color: #51337a;
+  border: 1px solid #d6c6ef;
+  background: #f5eeff;
   border-radius: 999px;
   padding: 0.2rem 0.48rem;
 }
@@ -218,9 +290,13 @@ body {
 .result-link {
   display: inline-block;
   margin-top: 0.55rem;
-  color: #0b5a8a;
+  color: #5f2f92;
   font-weight: 700;
   text-underline-offset: 3px;
+}
+
+.result-link:hover {
+  color: #422066;
 }
 
 .results-panel.empty p {
@@ -250,6 +326,21 @@ body {
 }
 
 @media (max-width: 640px) {
+  .top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .top-nav-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .top-nav-logo {
+    width: min(52vw, 170px);
+  }
+
   .app-shell {
     padding: 1.2rem 0.7rem 2rem;
   }

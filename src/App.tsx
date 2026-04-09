@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ResultsPanel } from "./components/ResultsPanel";
 import { SearchForm } from "./components/SearchForm";
 import type { SearchInputs, SearchResult, ValidationErrors } from "./types";
+import ovnLogo from "./assets/OVN-Logo_203x50.svg";
 import { generateSearchResults } from "./utils/searchGenerator";
 import { sanitizeKeywords, sanitizeLocation, sanitizeRoleTitle } from "./utils/validation";
 import { validateSearchInputs } from "./utils/validation";
@@ -89,8 +90,27 @@ export default function App() {
 
   return (
     <main className="app-shell">
+      <nav className="top-nav" aria-label="OVN navigation">
+        <div className="top-nav-brand">
+          <img className="top-nav-logo" src={ovnLogo} alt="Oncology Voice Network" />
+          <span className="top-nav-title">OVN Job Discovery</span>
+        </div>
+        <a
+          className="top-nav-link"
+          href="https://oncologyvoicenetwork.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Visit OVN
+        </a>
+      </nav>
+
       <header className="app-header">
-        <h1>OVN Job Discovery</h1>
+        <div className="brand-lockup">
+          <img className="brand-logo" src={ovnLogo} alt="Oncology Voice Network" />
+          <p className="brand-kicker">Job Discovery Proof of Concept</p>
+        </div>
+        <h1>Oncology Voice Network Job Discovery</h1>
         <p>
           Generate compliant outbound searches for LinkedIn and Indeed using location, role, and optional
           keywords.
