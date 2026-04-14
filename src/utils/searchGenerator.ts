@@ -1,8 +1,10 @@
 import type { SearchInputs, SearchResult } from "../types";
 import { buildSearchLabel } from "./labelBuilder";
 import {
+  buildHealthECareersSearchUrl,
   buildIndeedSearchUrl,
   buildLinkedInSearchUrl,
+  buildPracticeLinkSearchUrl,
   buildZipRecruiterSearchUrl
 } from "./urlBuilders";
 import { sanitizeKeywords, sanitizeRoleTitle } from "./validation";
@@ -93,6 +95,18 @@ export function generateSearchResults(inputs: SearchInputs): SearchResult[] {
       query: variant.query
     });
 
+    const healthECareersUrl = buildHealthECareersSearchUrl({
+      location,
+      radiusMiles,
+      query: variant.query
+    });
+
+    const practiceLinkUrl = buildPracticeLinkSearchUrl({
+      location,
+      radiusMiles,
+      query: variant.query
+    });
+
     return [
       {
         id: `linkedin-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
@@ -134,6 +148,34 @@ export function generateSearchResults(inputs: SearchInputs): SearchResult[] {
         }),
         query: variant.query,
         url: zipRecruiterUrl,
+        variant: variant.type
+      },
+      {
+        id: `healthecareers-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
+        platform: "Health eCareers",
+        label: buildSearchLabel({
+          platform: "Health eCareers",
+          variant: variant.type,
+          roleTitle,
+          keywords,
+          query: variant.query
+        }),
+        query: variant.query,
+        url: healthECareersUrl,
+        variant: variant.type
+      },
+      {
+        id: `practicelink-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
+        platform: "PracticeLink",
+        label: buildSearchLabel({
+          platform: "PracticeLink",
+          variant: variant.type,
+          roleTitle,
+          keywords,
+          query: variant.query
+        }),
+        query: variant.query,
+        url: practiceLinkUrl,
         variant: variant.type
       }
     ];

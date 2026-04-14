@@ -33,3 +33,19 @@ export function buildZipRecruiterSearchUrl(input: UrlBuilderInput): string {
 
   return `${base}?search=${query}&location=${location}&radius=${input.radiusMiles}`;
 }
+
+export function buildHealthECareersSearchUrl(input: UrlBuilderInput): string {
+  const base = "https://www.healthecareers.com/search-jobs";
+  const query = toEncodedQuery(input.query);
+  const location = encodeURIComponent(input.location.trim());
+
+  return `${base}?keywords=${query}&location=${location}&radius=${input.radiusMiles}`;
+}
+
+export function buildPracticeLinkSearchUrl(input: UrlBuilderInput): string {
+  const base = "https://jobs.practicelink.com/jobboard/jobsearchresults";
+  const query = toEncodedQuery(input.query);
+  const location = encodeURIComponent(input.location.trim());
+
+  return `${base}?keywords=${query}&location=${location}&radius=${input.radiusMiles}`;
+}

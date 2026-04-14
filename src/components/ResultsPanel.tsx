@@ -4,6 +4,10 @@ type ResultsPanelProps = {
   results: SearchResult[];
 };
 
+function toPlatformClass(platform: SearchResult["platform"]): string {
+  return platform.toLowerCase().replace(/\s+/g, "-");
+}
+
 export function ResultsPanel({ results }: ResultsPanelProps) {
   if (results.length === 0) {
     return (
@@ -23,7 +27,7 @@ export function ResultsPanel({ results }: ResultsPanelProps) {
 
       <ul className="results-list">
         {results.map((result) => (
-          <li key={result.id} className="result-card">
+          <li key={result.id} className={`result-card platform-${toPlatformClass(result.platform)}`}>
             <div className="result-top-row">
               <p className="result-platform">{result.platform}</p>
               <span className="variant-chip">{result.variant}</span>

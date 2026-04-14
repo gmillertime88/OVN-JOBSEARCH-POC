@@ -1,6 +1,6 @@
 # OVN Job Search Proof of Concept
 
-Local React + TypeScript proof of concept that generates outbound job search links for LinkedIn and Indeed based on user-entered criteria.
+Local React + TypeScript proof of concept that generates outbound job search links for LinkedIn, Indeed, ZipRecruiter, Health eCareers, and PracticeLink based on user-entered criteria.
 
 ## What It Does
 - Collects:
@@ -16,6 +16,9 @@ Local React + TypeScript proof of concept that generates outbound job search lin
 - Generates compliant outbound URLs for:
 	- LinkedIn Jobs
 	- Indeed
+	- ZipRecruiter
+	- Health eCareers
+	- PracticeLink
 - Displays links in a clean, clickable results panel with readable labels
 
 ## Guardrails and Scope

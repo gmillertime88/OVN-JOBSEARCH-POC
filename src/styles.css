@@ -209,10 +209,31 @@ body {
 
 .result-card {
   border: 1px solid #e2d6f2;
+  border-left: 4px solid #b9a7d9;
   border-radius: 10px;
   padding: 0.82rem;
   background: #ffffff;
   animation: card-enter 220ms ease-out both;
+}
+
+.result-card.platform-linkedin {
+  border-left-color: #0a66c2;
+}
+
+.result-card.platform-indeed {
+  border-left-color: #2557a7;
+}
+
+.result-card.platform-ziprecruiter {
+  border-left-color: #5a2dbd;
+}
+
+.result-card.platform-health-ecareers {
+  border-left-color: #0f7b6c;
+}
+
+.result-card.platform-practicelink {
+  border-left-color: #1f8f55;
 }
 
 .result-top-row {
@@ -228,6 +249,26 @@ body {
   text-transform: uppercase;
   color: #5c3f87;
   font-weight: 700;
+}
+
+.result-card.platform-linkedin .result-platform {
+  color: #0a66c2;
+}
+
+.result-card.platform-indeed .result-platform {
+  color: #2557a7;
+}
+
+.result-card.platform-ziprecruiter .result-platform {
+  color: #5a2dbd;
+}
+
+.result-card.platform-health-ecareers .result-platform {
+  color: #0f7b6c;
+}
+
+.result-card.platform-practicelink .result-platform {
+  color: #1f8f55;
 }
 
 .variant-chip {
