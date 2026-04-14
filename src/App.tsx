@@ -66,8 +66,8 @@ export default function App() {
           <p className="brand-kicker">Job Discovery Proof of Concept</p>
         <h1>Oncology Voice Network Job Discovery</h1>
         <p>
-          Generate compliant outbound searches for LinkedIn and Indeed using location, role, and optional
-          keywords.
+          Generate compliant outbound searches for LinkedIn, Indeed, and ZipRecruiter using location,
+          role, and optional keywords.
         </p>
         </header>
 

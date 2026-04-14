@@ -25,3 +25,11 @@ export function buildIndeedSearchUrl(input: UrlBuilderInput): string {
 
   return `${base}?q=${query}&l=${location}&radius=${input.radiusMiles}`;
 }
+
+export function buildZipRecruiterSearchUrl(input: UrlBuilderInput): string {
+  const base = "https://www.ziprecruiter.com/jobs-search";
+  const query = toEncodedQuery(input.query);
+  const location = encodeURIComponent(input.location.trim());
+
+  return `${base}?search=${query}&location=${location}&radius=${input.radiusMiles}`;
+}

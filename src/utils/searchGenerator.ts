@@ -1,6 +1,10 @@
 import type { SearchInputs, SearchResult } from "../types";
 import { buildSearchLabel } from "./labelBuilder";
-import { buildIndeedSearchUrl, buildLinkedInSearchUrl } from "./urlBuilders";
+import {
+  buildIndeedSearchUrl,
+  buildLinkedInSearchUrl,
+  buildZipRecruiterSearchUrl
+} from "./urlBuilders";
 import { sanitizeKeywords, sanitizeRoleTitle } from "./validation";
 
 type SearchVariant = {
@@ -83,6 +87,12 @@ export function generateSearchResults(inputs: SearchInputs): SearchResult[] {
       query: variant.query
     });
 
+    const zipRecruiterUrl = buildZipRecruiterSearchUrl({
+      location,
+      radiusMiles,
+      query: variant.query
+    });
+
     return [
       {
         id: `linkedin-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
@@ -110,6 +120,20 @@ export function generateSearchResults(inputs: SearchInputs): SearchResult[] {
         }),
         query: variant.query,
         url: indeedUrl,
+        variant: variant.type
+      },
+      {
+        id: `ziprecruiter-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
+        platform: "ZipRecruiter",
+        label: buildSearchLabel({
+          platform: "ZipRecruiter",
+          variant: variant.type,
+          roleTitle,
+          keywords,
+          query: variant.query
+        }),
+        query: variant.query,
+        url: zipRecruiterUrl,
         variant: variant.type
       }
     ];

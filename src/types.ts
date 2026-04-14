@@ -7,7 +7,7 @@ export type SearchInputs = {
 
 export type ValidationErrors = Partial<Record<keyof SearchInputs, string>>;
 
-export type SearchPlatform = "LinkedIn" | "Indeed";
+export type SearchPlatform = "LinkedIn" | "Indeed" | "ZipRecruiter";
 
 export type SearchVariantType =
   | "Base"
