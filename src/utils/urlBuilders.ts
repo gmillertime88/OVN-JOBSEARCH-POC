@@ -52,8 +52,15 @@ export function buildPracticeLinkSearchUrl(input: UrlBuilderInput): string {
 
 export function buildAscoCareerCenterSearchUrl(input: UrlBuilderInput): string {
   const base = "https://careercenter.asco.org/searchjobs/";
-  const query = toEncodedQuery(input.query);
-  const location = encodeURIComponent(input.location.trim());
+  const query = input.query.trim();
+  const location = input.location.trim();
+  const params = new URLSearchParams({
+    Keywords: query,
+    radialtown: location,
+    LocationId: "",
+    RadialLocation: String(input.radiusMiles),
+    CountryCode: "US"
+  });
 
-  return `${base}?keywords=${query}&location=${location}&radius=${input.radiusMiles}&countrycode=US`;
+  return `${base}?${params.toString()}`;
 }
