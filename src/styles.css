@@ -240,6 +240,10 @@ body {
   border-left-color: #006f9f;
 }
 
+.result-card.platform-the-ladders {
+  border-left-color: #007a5a;
+}
+
 .result-top-row {
   display: flex;
   justify-content: space-between;
@@ -277,6 +281,10 @@ body {
 
 .result-card.platform-asco-career-center .result-platform {
   color: #006f9f;
+}
+
+.result-card.platform-the-ladders .result-platform {
+  color: #007a5a;
 }
 
 .variant-chip {

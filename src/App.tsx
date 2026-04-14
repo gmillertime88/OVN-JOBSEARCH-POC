@@ -67,7 +67,8 @@ export default function App() {
         <h1>Oncology Voice Network Job Discovery</h1>
         <p>
           Generate compliant outbound searches for LinkedIn, Indeed, ZipRecruiter, and Health eCareers
-          and PracticeLink and ASCO Career Center using location, role, and optional keywords.
+          and PracticeLink and ASCO Career Center and The Ladders using location, role, and optional
+          keywords.
         </p>
         </header>
 

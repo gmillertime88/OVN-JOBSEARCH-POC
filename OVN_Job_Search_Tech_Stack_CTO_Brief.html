@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OVN Job Search POC - Technical Stack Brief</title>
+  <style>
+    body {
+      font-family: "Aptos", "Calibri", "Segoe UI", Arial, sans-serif;
+      color: #1f2937;
+      line-height: 1.45;
+      margin: 1in;
+      font-size: 11pt;
+      background: #ffffff;
+    }
+    .brand-ribbon {
+      height: 10px;
+      background: linear-gradient(90deg, #4d2b75 0%, #7b6eb2 52%, #f47922 100%);
+      margin: -1in -1in 18px -1in;
+    }
+    .cover-header {
+      border: 1px solid #d8cfeb;
+      border-left: 6px solid #4d2b75;
+      background: #fbf9ff;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+    .cover-brand-row {
+      display: table;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .cover-brand-logo,
+    .cover-brand-text {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .cover-brand-logo {
+      width: 220px;
+    }
+    .cover-brand-logo img {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+    .cover-brand-text {
+      text-align: right;
+      font-size: 10pt;
+      color: #5b5174;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    h1 {
+      font-size: 22pt;
+      margin: 0 0 6px 0;
+      color: #2b1b43;
+    }
+    h2 {
+      font-size: 14pt;
+      margin: 20px 0 8px 0;
+      color: #0b2a4a;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 4px;
+    }
+    h3 {
+      font-size: 12pt;
+      margin: 14px 0 6px 0;
+      color: #0f3a66;
+    }
+    p {
+      margin: 0 0 10px 0;
+    }
+    ul {
+      margin: 6px 0 10px 20px;
+      padding: 0;
+    }
+    li { margin-bottom: 4px; }
+    .meta {
+      font-size: 10pt;
+      color: #5b5174;
+      margin-bottom: 0;
+    }
+    .summary-box {
+      background: #f8f5ff;
+      border: 1px solid #d8cfeb;
+      border-left: 4px solid #7b6eb2;
+      padding: 10px 12px;
+      margin: 8px 0 14px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 12px 0;
+      font-size: 10.5pt;
+    }
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 8px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: #eef2f7;
+      color: #0b2a4a;
+    }
+    .small {
+      font-size: 10pt;
+      color: #4b5563;
+    }
+  </style>
+</head>
+<body>
+  <div class="brand-ribbon"></div>
+  <section class="cover-header">
+    <div class="cover-brand-row">
+      <div class="cover-brand-logo"></div>
+      <div class="cover-brand-text">Technical Briefing</div>
+    </div>
+    <h1>OVN Job Search Proof of Concept</h1>
+    <p class="meta">Technical Stack Brief | Date: April 14, 2026</p>
+  </section>
+
+  <div class="summary-box">
+    <p><strong>Executive Summary:</strong> The OVN Job Search application is a frontend-only React + TypeScript proof of concept built with Vite. It generates compliant outbound job search links to external platforms (no scraping, no automation), with strong input validation and a modular structure designed for rapid iteration and low operational overhead.</p>
+  </div>
+
+  <h2>1. Architecture at a Glance</h2>
+  <ul>
+    <li><strong>Application Type:</strong> Single-page web application (SPA)</li>
+    <li><strong>Architecture:</strong> Client-only (no backend service in v1)</li>
+    <li><strong>Core Workflow:</strong> User enters ZIP, radius, role, and keywords; app validates input; app generates outbound search URLs for supported job platforms.</li>
+    <li><strong>Compliance Position:</strong> URL generation only; users are redirected to original job boards in new tabs.</li>
+  </ul>
+
+  <h2>2. Core Technology Stack</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Technology</th>
+        <th>Version / Notes</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Language</td>
+        <td>TypeScript</td>
+        <td>v5.6.x</td>
+        <td>Type safety, maintainability, predictable refactoring.</td>
+      </tr>
+      <tr>
+        <td>UI Framework</td>
+        <td>React</td>
+        <td>v18.3.x</td>
+        <td>Component-based UI for form input and generated results panel.</td>
+      </tr>
+      <tr>
+        <td>DOM Renderer</td>
+        <td>react-dom</td>
+        <td>v18.3.x</td>
+        <td>Browser rendering for React components.</td>
+      </tr>
+      <tr>
+        <td>Build Tool / Dev Server</td>
+        <td>Vite</td>
+        <td>v5.4.x</td>
+        <td>Fast local development, optimized production bundling.</td>
+      </tr>
+      <tr>
+        <td>React Build Integration</td>
+        <td>@vitejs/plugin-react</td>
+        <td>v4.3.x</td>
+        <td>JSX transform and React tooling within Vite.</td>
+      </tr>
+      <tr>
+        <td>Type Definitions</td>
+        <td>@types/react, @types/react-dom, @types/node</td>
+        <td>18.x / 22.x</td>
+        <td>Compile-time typing support for framework and runtime APIs.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Delivery and Runtime Model</h2>
+  <ul>
+    <li><strong>Local Development:</strong> npm run dev (Vite dev server)</li>
+    <li><strong>Production Build:</strong> npm run build (TypeScript project build + Vite bundle)</li>
+    <li><strong>Preview Build:</strong> npm run preview</li>
+    <li><strong>Deployment Posture:</strong> Static asset output suitable for static hosting; repository currently configured with a Vite base path for GitHub Pages deployment pattern.</li>
+  </ul>
+
+  <h2>4. Functional Scope Implemented</h2>
+  <h3>Inputs and Validation</h3>
+  <ul>
+    <li>ZIP code (5 digits)</li>
+    <li>Radius in miles (validated numeric range)</li>
+    <li>Required role/title</li>
+    <li>Up to three optional keywords</li>
+  </ul>
+
+  <h3>Search Variants</h3>
+  <ul>
+    <li>Base role search</li>
+    <li>Role + Keywords search</li>
+    <li>Single Keyword search only when exactly one keyword is provided</li>
+  </ul>
+
+  <h3>Current Platform Integrations</h3>
+  <ul>
+    <li>LinkedIn</li>
+    <li>Indeed</li>
+    <li>ZipRecruiter</li>
+    <li>Health eCareers</li>
+    <li>PracticeLink</li>
+    <li>ASCO Career Center (US-only, radial location search format)</li>
+  </ul>
+
+  <h2>5. Compliance and Risk Controls (v1)</h2>
+  <ul>
+    <li>No scraping of third-party sites.</li>
+    <li>No automated login to third-party platforms.</li>
+    <li>No browser automation against partner job boards.</li>
+    <li>Outbound URL generation only, preserving platform terms-friendly behavior.</li>
+  </ul>
+
+  <h2>6. Codebase Design Quality</h2>
+  <ul>
+    <li><strong>Separation of Concerns:</strong> URL builders, validation logic, label generation, and search result generation are isolated in utility modules.</li>
+    <li><strong>UI Modularity:</strong> Form and results are split into reusable React components.</li>
+    <li><strong>Extensibility:</strong> Adding a new platform is straightforward by adding one URL builder and one entry in result generation flow.</li>
+    <li><strong>Maintainability:</strong> Strong TypeScript typing for search input, validation errors, platforms, and result variants.</li>
+  </ul>
+
+  <h2>7. Recommended Next Technical Steps</h2>
+  <ol>
+    <li>Add automated unit tests for URL builders and validation logic.</li>
+    <li>Add lightweight analytics for click-through tracking per platform and variant.</li>
+    <li>Add environment-based configuration for platform enable/disable and future feature flags.</li>
+    <li>Evaluate optional backend service only if persistence, personalization, or reporting becomes a requirement.</li>
+  </ol>
+
+  <p class="small">Prepared from the current repository implementation and project conventions as of April 14, 2026.</p>
+</body>
+</html>

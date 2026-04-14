@@ -13,7 +13,8 @@ export type SearchPlatform =
   | "ZipRecruiter"
   | "Health eCareers"
   | "PracticeLink"
-  | "ASCO Career Center";
+  | "ASCO Career Center"
+  | "The Ladders";
 
 export type SearchVariantType =
   | "Base"

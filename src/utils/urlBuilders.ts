@@ -64,3 +64,15 @@ export function buildAscoCareerCenterSearchUrl(input: UrlBuilderInput): string {
 
   return `${base}?${params.toString()}`;
 }
+
+export function buildTheLaddersSearchUrl(input: UrlBuilderInput): string {
+  const base = "https://www.theladders.com/jobs/searchresults-jobs";
+  const params = new URLSearchParams({
+    keywords: input.query.trim(),
+    location: input.location.trim(),
+    sortBy: "SCORE",
+    distance: String(input.radiusMiles)
+  });
+
+  return `${base}?${params.toString()}`;
+}

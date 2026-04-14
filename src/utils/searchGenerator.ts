@@ -6,6 +6,7 @@ import {
   buildIndeedSearchUrl,
   buildLinkedInSearchUrl,
   buildPracticeLinkSearchUrl,
+  buildTheLaddersSearchUrl,
   buildZipRecruiterSearchUrl
 } from "./urlBuilders";
 import { sanitizeKeywords, sanitizeRoleTitle } from "./validation";
@@ -98,6 +99,12 @@ export function generateSearchResults(inputs: SearchInputs): SearchResult[] {
       query: variant.query
     });
 
+    const theLaddersUrl = buildTheLaddersSearchUrl({
+      location,
+      radiusMiles,
+      query: variant.query
+    });
+
     return [
       {
         id: `linkedin-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
@@ -125,6 +132,20 @@ export function generateSearchResults(inputs: SearchInputs): SearchResult[] {
         }),
         query: variant.query,
         url: indeedUrl,
+        variant: variant.type
+      },
+      {
+        id: `the-ladders-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
+        platform: "The Ladders",
+        label: buildSearchLabel({
+          platform: "The Ladders",
+          variant: variant.type,
+          roleTitle,
+          keywords,
+          query: variant.query
+        }),
+        query: variant.query,
+        url: theLaddersUrl,
         variant: variant.type
       },
       {
