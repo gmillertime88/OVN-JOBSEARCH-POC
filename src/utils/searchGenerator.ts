@@ -15,19 +15,10 @@ type SearchVariant = {
   query: string;
 };
 
-function toBroadenedRole(roleTitle: string): string {
-  return roleTitle
-    .split(/\s+/)
-    .filter((word) => word.length > 3)
-    .slice(0, 2)
-    .join(" ") || roleTitle;
-}
-
 function createVariants(roleTitle: string, keywords: string[]): SearchVariant[] {
   const cleanedRole = sanitizeRoleTitle(roleTitle);
   const joinedKeywords = keywords.join(" ");
   const withKeywords = [cleanedRole, joinedKeywords].filter(Boolean).join(" ");
-  const broadened = toBroadenedRole(cleanedRole);
 
   const variants: SearchVariant[] = [
     {
@@ -42,25 +33,18 @@ function createVariants(roleTitle: string, keywords: string[]): SearchVariant[] 
       query: withKeywords
     });
 
-    keywords.forEach((keyword) => {
+    if (keywords.length === 1) {
       variants.push({
         type: "Single Keyword",
-        query: `${cleanedRole} ${keyword}`
+        query: `${cleanedRole} ${keywords[0]}`
       });
-    });
-  }
-
-  if (broadened.toLowerCase() !== cleanedRole.toLowerCase()) {
-    variants.push({
-      type: "Broadened",
-      query: broadened
-    });
+    }
   }
 
   const deduped = new Map<string, SearchVariant>();
 
   variants.forEach((variant) => {
-    const key = variant.query.toLowerCase();
+    const key = `${variant.type.toLowerCase()}::${variant.query.toLowerCase()}`;
     if (!deduped.has(key)) {
       deduped.set(key, variant);
     }
