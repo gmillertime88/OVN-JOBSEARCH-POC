@@ -1,6 +1,7 @@
 import type { SearchInputs, SearchResult } from "../types";
 import { buildSearchLabel } from "./labelBuilder";
 import {
+  buildAscoCareerCenterSearchUrl,
   buildHealthECareersSearchUrl,
   buildIndeedSearchUrl,
   buildLinkedInSearchUrl,
@@ -107,6 +108,12 @@ export function generateSearchResults(inputs: SearchInputs): SearchResult[] {
       query: variant.query
     });
 
+    const ascoCareerCenterUrl = buildAscoCareerCenterSearchUrl({
+      location,
+      radiusMiles,
+      query: variant.query
+    });
+
     return [
       {
         id: `linkedin-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
@@ -176,6 +183,20 @@ export function generateSearchResults(inputs: SearchInputs): SearchResult[] {
         }),
         query: variant.query,
         url: practiceLinkUrl,
+        variant: variant.type
+      },
+      {
+        id: `asco-career-center-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
+        platform: "ASCO Career Center",
+        label: buildSearchLabel({
+          platform: "ASCO Career Center",
+          variant: variant.type,
+          roleTitle,
+          keywords,
+          query: variant.query
+        }),
+        query: variant.query,
+        url: ascoCareerCenterUrl,
         variant: variant.type
       }
     ];

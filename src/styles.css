@@ -236,6 +236,10 @@ body {
   border-left-color: #1f8f55;
 }
 
+.result-card.platform-asco-career-center {
+  border-left-color: #006f9f;
+}
+
 .result-top-row {
   display: flex;
   justify-content: space-between;
@@ -269,6 +273,10 @@ body {
 
 .result-card.platform-practicelink .result-platform {
   color: #1f8f55;
+}
+
+.result-card.platform-asco-career-center .result-platform {
+  color: #006f9f;
 }
 
 .variant-chip {

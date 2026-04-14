@@ -49,3 +49,11 @@ export function buildPracticeLinkSearchUrl(input: UrlBuilderInput): string {
 
   return `${base}?keywords=${query}&location=${location}&radius=${input.radiusMiles}`;
 }
+
+export function buildAscoCareerCenterSearchUrl(input: UrlBuilderInput): string {
+  const base = "https://careercenter.asco.org/jobs/";
+  const query = toEncodedQuery(input.query);
+  const location = encodeURIComponent(input.location.trim());
+
+  return `${base}?keywords=${query}&location=${location}&radius=${input.radiusMiles}`;
+}
