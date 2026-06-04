@@ -94,7 +94,7 @@ This command will:
 Optional one-time alias to run it as a single command (`deployPT`) from this repo:
 
 ```bash
-echo 'alias deployPT="\"/Users/greg/Library/CloudStorage/Dropbox/Coding/OVN-Job-Board/deployPT\""' >> ~/.zshrc
+echo 'alias deployPT="\"$PWD/deployPT\""' >> ~/.zshrc
 source ~/.zshrc
 ```
 

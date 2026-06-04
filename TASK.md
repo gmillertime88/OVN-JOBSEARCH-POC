@@ -1,6 +1,6 @@
 # Current Task
 
-Build the first working version of the OVN Job Search proof of concept.
+Build the first working version of the ProactiveTech Job Board proof of concept.
 
 ## What to Build
 Create a local web application that:
