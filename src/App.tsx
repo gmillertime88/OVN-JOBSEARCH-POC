@@ -66,8 +66,8 @@ export default function App() {
           <p className="brand-kicker">Job Discovery Proof of Concept</p>
           <h1>ProactiveTech Job Board</h1>
           <p>
-            Generate compliant outbound searches for LinkedIn, Indeed, ZipRecruiter, Health eCareers,
-            PracticeLink, ASCO Career Center, and The Ladders using location, role, and optional keywords.
+            Generate compliant outbound searches for LinkedIn, Indeed, ZipRecruiter, and The Ladders using
+            location, role, and optional keywords.
           </p>
         </header>
 

@@ -34,37 +34,6 @@ export function buildZipRecruiterSearchUrl(input: UrlBuilderInput): string {
   return `${base}?search=${query}&location=${location}&radius=${input.radiusMiles}`;
 }
 
-export function buildHealthECareersSearchUrl(input: UrlBuilderInput): string {
-  const base = "https://www.healthecareers.com/search-jobs";
-  const query = toEncodedQuery(input.query);
-  const location = encodeURIComponent(input.location.trim());
-
-  return `${base}?keywords=${query}&location=${location}&radius=${input.radiusMiles}`;
-}
-
-export function buildPracticeLinkSearchUrl(input: UrlBuilderInput): string {
-  const base = "https://jobs.practicelink.com/jobboard/jobsearchresults";
-  const query = toEncodedQuery(input.query);
-  const location = encodeURIComponent(input.location.trim());
-
-  return `${base}?keywords=${query}&location=${location}&radius=${input.radiusMiles}`;
-}
-
-export function buildAscoCareerCenterSearchUrl(input: UrlBuilderInput): string {
-  const base = "https://careercenter.asco.org/searchjobs/";
-  const query = input.query.trim();
-  const location = input.location.trim();
-  const params = new URLSearchParams({
-    Keywords: query,
-    radialtown: location,
-    LocationId: "",
-    RadialLocation: String(input.radiusMiles),
-    CountryCode: "US"
-  });
-
-  return `${base}?${params.toString()}`;
-}
-
 export function buildTheLaddersSearchUrl(input: UrlBuilderInput): string {
   const base = "https://www.theladders.com/jobs/searchresults-jobs";
   const params = new URLSearchParams({

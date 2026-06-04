@@ -1,11 +1,8 @@
 import type { SearchInputs, SearchResult } from "../types";
 import { buildSearchLabel } from "./labelBuilder";
 import {
-  buildAscoCareerCenterSearchUrl,
-  buildHealthECareersSearchUrl,
   buildIndeedSearchUrl,
   buildLinkedInSearchUrl,
-  buildPracticeLinkSearchUrl,
   buildTheLaddersSearchUrl,
   buildZipRecruiterSearchUrl
 } from "./urlBuilders";
@@ -81,24 +78,6 @@ export function generateSearchResults(inputs: SearchInputs): SearchResult[] {
       query: variant.query
     });
 
-    const healthECareersUrl = buildHealthECareersSearchUrl({
-      location,
-      radiusMiles,
-      query: variant.query
-    });
-
-    const practiceLinkUrl = buildPracticeLinkSearchUrl({
-      location,
-      radiusMiles,
-      query: variant.query
-    });
-
-    const ascoCareerCenterUrl = buildAscoCareerCenterSearchUrl({
-      location,
-      radiusMiles,
-      query: variant.query
-    });
-
     const theLaddersUrl = buildTheLaddersSearchUrl({
       location,
       radiusMiles,
@@ -160,48 +139,6 @@ export function generateSearchResults(inputs: SearchInputs): SearchResult[] {
         }),
         query: variant.query,
         url: zipRecruiterUrl,
-        variant: variant.type
-      },
-      {
-        id: `healthecareers-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
-        platform: "Health eCareers",
-        label: buildSearchLabel({
-          platform: "Health eCareers",
-          variant: variant.type,
-          roleTitle,
-          keywords,
-          query: variant.query
-        }),
-        query: variant.query,
-        url: healthECareersUrl,
-        variant: variant.type
-      },
-      {
-        id: `practicelink-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
-        platform: "PracticeLink",
-        label: buildSearchLabel({
-          platform: "PracticeLink",
-          variant: variant.type,
-          roleTitle,
-          keywords,
-          query: variant.query
-        }),
-        query: variant.query,
-        url: practiceLinkUrl,
-        variant: variant.type
-      },
-      {
-        id: `asco-career-center-${variant.type}-${variant.query.toLowerCase().replace(/\s+/g, "-")}`,
-        platform: "ASCO Career Center",
-        label: buildSearchLabel({
-          platform: "ASCO Career Center",
-          variant: variant.type,
-          roleTitle,
-          keywords,
-          query: variant.query
-        }),
-        query: variant.query,
-        url: ascoCareerCenterUrl,
         variant: variant.type
       }
     ];

@@ -1,6 +1,6 @@
 # ProactiveTech Job Board Proof of Concept
 
-Local React + TypeScript proof of concept that generates outbound job search links for LinkedIn, Indeed, ZipRecruiter, Health eCareers, PracticeLink, ASCO Career Center, and The Ladders based on user-entered criteria for the ProactiveTech job board workflow.
+Local React + TypeScript proof of concept that generates outbound job search links for LinkedIn, Indeed, ZipRecruiter, and The Ladders based on user-entered criteria for the ProactiveTech job board workflow.
 
 ## What It Does
 - Collects:
@@ -17,9 +17,6 @@ Local React + TypeScript proof of concept that generates outbound job search lin
 	- LinkedIn Jobs
 	- Indeed
 	- ZipRecruiter
-	- Health eCareers
-	- PracticeLink
-	- ASCO Career Center
 	- The Ladders
 - Displays links in a clean, clickable results panel with readable labels
 

@@ -228,18 +228,6 @@ body {
   border-left-color: #5a2dbd;
 }
 
-.result-card.platform-health-ecareers {
-  border-left-color: #0f7b6c;
-}
-
-.result-card.platform-practicelink {
-  border-left-color: #1f8f55;
-}
-
-.result-card.platform-asco-career-center {
-  border-left-color: #006f9f;
-}
-
 .result-card.platform-the-ladders {
   border-left-color: #007a5a;
 }
@@ -269,18 +257,6 @@ body {
 
 .result-card.platform-ziprecruiter .result-platform {
   color: #5a2dbd;
-}
-
-.result-card.platform-health-ecareers .result-platform {
-  color: #0f7b6c;
-}
-
-.result-card.platform-practicelink .result-platform {
-  color: #1f8f55;
-}
-
-.result-card.platform-asco-career-center .result-platform {
-  color: #006f9f;
 }
 
 .result-card.platform-the-ladders .result-platform {

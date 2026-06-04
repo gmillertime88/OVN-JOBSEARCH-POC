@@ -11,9 +11,6 @@ export type SearchPlatform =
   | "LinkedIn"
   | "Indeed"
   | "ZipRecruiter"
-  | "Health eCareers"
-  | "PracticeLink"
-  | "ASCO Career Center"
   | "The Ladders";
 
 export type SearchVariantType =
