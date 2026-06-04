@@ -35,7 +35,7 @@ export function SearchForm({ values, errors, onSubmit, onReset, onInputChange }:
         id="location"
         name="location"
         type="text"
-        placeholder="Calabasas, CA 91302"
+        placeholder="Princeton, NJ 08544"
         value={values.location}
         onChange={(event) => onInputChange("location", event.target.value)}
       />
@@ -59,7 +59,7 @@ export function SearchForm({ values, errors, onSubmit, onReset, onInputChange }:
         id="roleTitle"
         name="roleTitle"
         type="text"
-        placeholder="Pharmacologist"
+        placeholder="Vice President, IT"
         value={values.roleTitle}
         onChange={(event) => onInputChange("roleTitle", event.target.value)}
       />
