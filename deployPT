@@ -7,7 +7,7 @@ if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 fi
 
 branch="$(git rev-parse --abbrev-ref HEAD)"
-message="${*:-chore: update OVN POC}"
+message="${*:-chore: update ProactiveTech job board}"
 
 if [[ -n "$(git status --porcelain)" ]]; then
   git add -A

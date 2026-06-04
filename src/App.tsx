@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ResultsPanel } from "./components/ResultsPanel";
 import { SearchForm } from "./components/SearchForm";
 import type { SearchInputs, SearchResult, ValidationErrors } from "./types";
-import ovnLogo from "./assets/OVN-Logo_203x50.svg";
+import ptLogo from "./assets/PT Logo.png";
 import { generateSearchResults } from "./utils/searchGenerator";
 import { validateSearchInputs } from "./utils/validation";
 
@@ -55,21 +55,20 @@ export default function App() {
 
   return (
     <>
-      <header className="site-header" aria-label="OVN header">
+      <header className="site-header" aria-label="ProactiveTech header">
         <div className="site-header-inner">
-          <img className="site-logo" src={ovnLogo} alt="Oncology Voice Network" />
+          <img className="site-logo" src={ptLogo} alt="ProactiveTech" />
         </div>
       </header>
 
       <main className="app-shell">
         <header className="app-header">
           <p className="brand-kicker">Job Discovery Proof of Concept</p>
-        <h1>Oncology Voice Network Job Discovery</h1>
-        <p>
-          Generate compliant outbound searches for LinkedIn, Indeed, ZipRecruiter, and Health eCareers
-          and PracticeLink and ASCO Career Center and The Ladders using location, role, and optional
-          keywords.
-        </p>
+          <h1>ProactiveTech Job Board</h1>
+          <p>
+            Generate compliant outbound searches for LinkedIn, Indeed, ZipRecruiter, Health eCareers,
+            PracticeLink, ASCO Career Center, and The Ladders using location, role, and optional keywords.
+          </p>
         </header>
 
         <section className="app-grid">

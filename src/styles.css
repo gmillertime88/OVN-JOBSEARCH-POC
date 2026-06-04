@@ -1,22 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
 
 :root {
-  --ovn-purple: #4d2b75;
-  --ovn-lavender: #7b6eb2;
-  --ovn-yellow: #fddb5d;
-  --ovn-gold: #fcb137;
-  --ovn-orange: #f47922;
-  --bg-deep: #2f1d4a;
-  --bg-soft: #4d2b75;
-  --surface: #faf8ff;
+  --pt-navy: #0a2540;
+  --pt-blue: #0072c6;
+  --pt-bright-blue: #116dff;
+  --pt-sky: #7fccf7;
+  --bg-deep: #071a2d;
+  --bg-soft: #0e385f;
+  --surface: #f3f9ff;
   --surface-2: #ffffff;
-  --ink-strong: #2b1b43;
-  --ink-muted: #5b5174;
-  --accent: #f47922;
-  --accent-2: #7b6eb2;
+  --ink-strong: #10253d;
+  --ink-muted: #46627f;
+  --accent: #0072c6;
+  --accent-2: #116dff;
   --danger: #b3261e;
-  --outline: #dfd4f0;
-  --card-shadow: 0 18px 30px rgba(48, 28, 73, 0.16);
+  --outline: #d4e5f7;
+  --card-shadow: 0 18px 30px rgba(6, 38, 68, 0.18);
   font-family: "Manrope", "Segoe UI", sans-serif;
   color: var(--ink-strong);
 }
@@ -29,8 +28,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 18%, rgba(253, 219, 93, 0.22), transparent 42%),
-    radial-gradient(circle at 85% 10%, rgba(244, 121, 34, 0.22), transparent 35%),
+    radial-gradient(circle at 12% 18%, rgba(127, 204, 247, 0.24), transparent 42%),
+    radial-gradient(circle at 85% 10%, rgba(17, 109, 255, 0.2), transparent 35%),
     linear-gradient(160deg, var(--bg-deep) 0%, var(--bg-soft) 100%);
 }
 
@@ -44,8 +43,8 @@ body {
 .site-header {
   width: 100%;
   background: #ffffff;
-  border-bottom: 1px solid #e8dff4;
-  box-shadow: 0 1px 8px rgba(38, 21, 60, 0.08);
+  border-bottom: 1px solid #d8e7f8;
+  box-shadow: 0 1px 8px rgba(5, 38, 67, 0.12);
 }
 
 .site-header-inner {
@@ -55,7 +54,8 @@ body {
 }
 
 .site-logo {
-  width: min(230px, 62vw);
+  width: min(300px, 72vw);
+  max-height: 56px;
   height: auto;
 }
 
@@ -64,14 +64,14 @@ body {
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-weight: 800;
   letter-spacing: -0.01em;
-  color: #fff8e4;
+  color: #eff7ff;
   font-size: clamp(1.8rem, 5vw, 2.6rem);
 }
 
 .app-header p {
   margin-top: 0.6rem;
   max-width: 70ch;
-  color: #f1e8ff;
+  color: #d7e9fb;
 }
 
 .brand-lockup {
@@ -89,7 +89,7 @@ body {
 
 .brand-kicker {
   margin: 0;
-  color: #ffe39b;
+  color: #a7d8ff;
   font-size: 0.84rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -128,7 +128,7 @@ body {
 
 .search-form input {
   width: 100%;
-  border: 1px solid #ccbde5;
+  border: 1px solid #c8dcf2;
   border-radius: 10px;
   padding: 0.72rem;
   font-size: 0.96rem;
@@ -144,7 +144,7 @@ body {
 }
 
 .keywords-group {
-  border: 1px dashed #d0c1ea;
+  border: 1px dashed #bbd6f4;
   border-radius: 10px;
   padding: 0.75rem;
   margin: 0.9rem 0;
@@ -161,7 +161,7 @@ body {
   border: none;
   border-radius: 10px;
   padding: 0.8rem;
-  background: linear-gradient(128deg, var(--ovn-purple) 0%, var(--ovn-orange) 100%);
+  background: linear-gradient(128deg, var(--pt-navy) 0%, var(--pt-bright-blue) 100%);
   color: #ffffff;
   font-size: 0.95rem;
   font-weight: 700;
@@ -177,11 +177,11 @@ body {
 .secondary-btn {
   width: 100%;
   margin-top: 0.55rem;
-  border: 1px solid #c0aee1;
+  border: 1px solid #b2d1f1;
   border-radius: 10px;
   padding: 0.72rem;
-  background: #f6efff;
-  color: #4a2d72;
+  background: #eef6ff;
+  color: #0f4475;
   font-size: 0.92rem;
   font-weight: 700;
   cursor: pointer;
@@ -208,8 +208,8 @@ body {
 }
 
 .result-card {
-  border: 1px solid #e2d6f2;
-  border-left: 4px solid #b9a7d9;
+  border: 1px solid #d6e6f7;
+  border-left: 4px solid #8bbce8;
   border-radius: 10px;
   padding: 0.82rem;
   background: #ffffff;
@@ -255,7 +255,7 @@ body {
   font-size: 0.82rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #5c3f87;
+  color: #2a5e94;
   font-weight: 700;
 }
 
@@ -290,9 +290,9 @@ body {
 .variant-chip {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #51337a;
-  border: 1px solid #d6c6ef;
-  background: #f5eeff;
+  color: #124d84;
+  border: 1px solid #c9def4;
+  background: #edf6ff;
   border-radius: 999px;
   padding: 0.2rem 0.48rem;
 }
@@ -311,13 +311,13 @@ body {
 .result-link {
   display: inline-block;
   margin-top: 0.55rem;
-  color: #5f2f92;
+  color: #0e64b4;
   font-weight: 700;
   text-underline-offset: 3px;
 }
 
 .result-link:hover {
-  color: #422066;
+  color: #0a4b86;
 }
 
 .results-panel.empty p {

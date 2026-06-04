@@ -1,6 +1,6 @@
-# OVN Job Search Proof of Concept
+# ProactiveTech Job Board Proof of Concept
 
-Local React + TypeScript proof of concept that generates outbound job search links for LinkedIn, Indeed, ZipRecruiter, Health eCareers, PracticeLink, ASCO Career Center, and The Ladders based on user-entered criteria.
+Local React + TypeScript proof of concept that generates outbound job search links for LinkedIn, Indeed, ZipRecruiter, Health eCareers, PracticeLink, ASCO Career Center, and The Ladders based on user-entered criteria for the ProactiveTech job board workflow.
 
 ## What It Does
 - Collects:
@@ -83,7 +83,7 @@ npm run preview
 After making changes, you can run:
 
 ```bash
-./deployOVN "your commit message"
+./deployPT "your commit message"
 ```
 
 If you omit the message, a default commit message is used.
@@ -94,10 +94,10 @@ This command will:
 - push to the current branch
 - trigger GitHub Actions deployment for GitHub Pages
 
-Optional one-time alias to run it as a single command (`deployOVN`) from this repo:
+Optional one-time alias to run it as a single command (`deployPT`) from this repo:
 
 ```bash
-echo 'alias deployOVN="\"/Users/greg/Library/CloudStorage/Dropbox/ProactiveTech/Clients/Oncology Voice Network (OVN)/Proof of Concept/Job Search/deployOVN\""' >> ~/.zshrc
+echo 'alias deployPT="\"/Users/greg/Library/CloudStorage/Dropbox/Coding/OVN-Job-Board/deployPT\""' >> ~/.zshrc
 source ~/.zshrc
 ```
 
